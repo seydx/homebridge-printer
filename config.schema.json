@@ -1,0 +1,92 @@
+{
+  "pluginAlias": "PrinterPlatform",
+  "pluginType": "platform",
+  "singular": true,
+  "customUi": false,
+  "footerDisplay": "For documentation please see [GitHub repository](https://github.com/SeydX/homebridge-printer)",
+  "schema": {
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "default": "PrinterPlatform",
+      "description": "Name for the log."
+    },
+    "debug": {
+      "title": "Debug",
+      "type": "boolean",
+      "description": "Enables additional output in the log."
+    },
+    "printer": {
+      "type": "array",
+      "items": {
+        "title": "Printer",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "required": true,
+            "description": "Set the printer name for display in the Home app."
+          },
+          "address": {
+            "title": "Address",
+            "type": "string",
+            "required": true,
+            "description": "Printer ipp address."
+          },
+          "manufacturer": {
+            "name": "Manufacturer",
+            "type": "string",
+            "description": "Set the manufacturer name for display in the Home app."
+          },
+          "model": {
+            "name": "Model",
+            "type": "string",
+            "description": "Set the model for display in the Home app."
+          },
+          "serialNumber": {
+            "name": "Serial Number",
+            "type": "string",
+            "description": "Set the serial number for display in the Home app."
+          }
+        }
+      }
+    }
+  },
+  "layout": [
+    "name",
+    "debug",
+    {
+      "type": "section",
+      "title": "Printer",
+      "expandable": true,
+      "expanded": true,
+      "orderable": false,
+      "items": [
+        {
+          "key": "printer",
+          "type": "array",
+          "orderable": false,
+          "buttonText": "Add Printer",
+          "items": [
+            "printer[].name",
+            "printer[].address",
+            {
+              "key": "printer[]",
+              "type": "section",
+              "title": "Branding",
+              "expandable": true,
+              "expanded": false,
+              "orderable": false,
+              "items": [
+                "printer[].manufacturer",
+                "printer[].model",
+                "printer[].serialNumber"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+    "bridge": {
+      ...
+    },
+    "accessories": [
+      ...
+    ],
+    "platforms": [
+        {
+            "name": "PrinterPlatform",
+            "platform": "PrinterPlatform",
+            "debug": true,
+            "printer": [
+              {
+                "name": "HP Envy Pro",
+                "address": "http://HPF92BAB4321AB:631/ipp/printer",
+                "manufacturer": "HP",
+                "model": "Envy Pro",
+                "serialNumber": "1234567890"
+              }
+            ]
+        }
+    ]
+}

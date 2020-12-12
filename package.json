@@ -1,0 +1,47 @@
+{
+  "name": "homebridge-printer",
+  "version": "1.0.0",
+  "description": "Homebridge plugin for ipp capable printer",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeydX/homebridge-printer.git"
+  },
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/seydx"
+    },
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/seydx"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/SeydX"
+    }
+  ],
+  "author": "SeydX (https://github.com/SeydX/homebridge-printer)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SeydX/homebridge-printer/issues"
+  },
+  "homepage": "https://github.com/SeydX/homebridge-printer#readme",
+  "keywords": [
+    "hp",
+    "printer",
+    "homebridge",
+    "homebridge-plugin",
+    "plugin"
+  ],
+  "engines": {
+    "node": ">=12.18.3",
+    "homebridge": "^1.1.6"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@sealsystems/ipp": "^2.7.0",
+    "fakegato-history": "^0.6.1",
+    "moment": "^2.29.1"
+  }
+}
