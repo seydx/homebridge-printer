@@ -33,7 +33,7 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
     {
       "platform": "PrinterPlatform",
       "debug": true,
-      "devices":[
+      "printer":[
         {
           "name": "HP Envy Pro",
           "address": "http://hpf92bab4321ab:631/ipp/printer",
