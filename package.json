@@ -1,6 +1,6 @@
 {
   "name": "homebridge-printer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Homebridge plugin for ipp capable printer",
   "main": "index.js",
   "repository": {
