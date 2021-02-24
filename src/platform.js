@@ -86,6 +86,7 @@ function PrinterPlatform (log, config, api) {
             name: printer.name + ' Printing',
             type: 'contact',
             address: printer.address,
+            polling: Number.isInteger(printer.polling) & printer.polling < 1 ? 1 : printer.polling,
             manufacturer: printer.manufacturer,
             model: printer.model,
             serialNumber: printer.serialNumber
