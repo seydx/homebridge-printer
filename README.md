@@ -37,6 +37,7 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
         {
           "name": "HP Envy Pro",
           "address": "http://hpf92bab4321ab:631/ipp/printer",
+          "polling": 10,
           "manufacturer": "HP",
           "model": "Envy Pro",
           "serialNumber": "12345"
@@ -56,6 +57,7 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
 | platform | **Yes** | Must be **PrinterPlatform** |
 | debug | **No** | Enables additional output in the log. |
 | printer.address | **Yes** | IPP address of the printer. |
+| printer.polling | **No** | Printer state polling. (Default: 10s) |
 | printer.manufacturer | **No** | Manufacturer name for display in the Home app. |
 | printer.model | **No** | Model name for display in the Home app. |
 | printer.serialNumber | **No** | Serialnumber for display in the Home app. |
