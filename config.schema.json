@@ -34,6 +34,13 @@
             "required": true,
             "description": "Printer ipp address."
           },
+          "polling": {
+            "title": "Polling",
+            "type": "integer",
+            "required": false,
+            "default": 10,
+            "description": "Device polling in seconds. (Default 10s)"
+          },
           "manufacturer": {
             "name": "Manufacturer",
             "type": "string",
@@ -71,6 +78,7 @@
           "items": [
             "printer[].name",
             "printer[].address",
+            "printer[].polling",
             {
               "key": "printer[]",
               "type": "section",
