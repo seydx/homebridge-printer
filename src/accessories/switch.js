@@ -159,7 +159,7 @@ class SwitchAccessory {
 
       setTimeout(() => {
         this.getState();
-      }, 10000);
+      }, this.accessory.context.config.polling * 1000);
 
     }
 
