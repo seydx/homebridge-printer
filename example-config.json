@@ -14,6 +14,7 @@
               {
                 "name": "HP Envy Pro",
                 "address": "http://HPF92BAB4321AB:631/ipp/printer",
+                "polling": 10,
                 "manufacturer": "HP",
                 "model": "Envy Pro",
                 "serialNumber": "1234567890"
