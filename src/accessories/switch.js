@@ -43,7 +43,9 @@ class SwitchAccessory {
         if(response && response['printer-attributes-tag']){
 
           let attributes = response['printer-attributes-tag'];
-          let markers = [attributes['marker-names']];
+          let markers = !Array.isArray(attributes['marker-names'])
+            ? [attributes['marker-names']]
+            : attributes['marker-names'];
 
           if(markers && markers.length){
 
@@ -98,7 +100,9 @@ class SwitchAccessory {
           .updateValue(true);
 
         let attributes = response['printer-attributes-tag'];
-        let markerLevel = [attributes['marker-levels']];
+        let markerLevel = !Array.isArray(attributes['marker-levels'])
+          ? [attributes['marker-levels']]
+          : attributes['marker-levels'];
 
         if(markerLevel && markerLevel.length){
 
