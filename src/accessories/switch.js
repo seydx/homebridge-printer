@@ -114,7 +114,7 @@ class SwitchAccessory {
 
               filterService
                 .getCharacteristic(this.api.hap.Characteristic.FilterLifeLevel)
-                .updateValue(level);
+                .updateValue(level < 0 ? 0 : level);
 
             }
 
