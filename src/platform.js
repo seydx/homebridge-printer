@@ -77,6 +77,11 @@ function PrinterPlatform (log, config, api) {
         } else {
           
           printer.type = 'switch';
+          printer.polling = Number.isInteger(printer.polling) 
+            ?  printer.polling < 1 
+                 ? 1 
+                 : printer.polling
+            :  10;
           
           this.devices.set(uuidSwitch, printer);
           
@@ -86,7 +91,7 @@ function PrinterPlatform (log, config, api) {
             name: printer.name + ' Printing',
             type: 'contact',
             address: printer.address,
-            polling: Number.isInteger(printer.polling) & printer.polling < 1 ? 1 : printer.polling,
+            polling: printer.polling,
             manufacturer: printer.manufacturer,
             model: printer.model,
             serialNumber: printer.serialNumber
