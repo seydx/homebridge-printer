@@ -156,8 +156,8 @@ class SwitchAccessory {
     } catch(err) {
     
       if(err instanceof Error){
-        if(err.code && (err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT' || err.code === 'EHOSTUNREACH' || err.code === 'ECONNRESET' || err.code === 'ECONNABORTED')){
-          Logger.warn('Can not reach printer!', this.accessory.displayName);
+        if(err.code && (err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT' || err.code === 'EHOSTUNREACH' || err.code === 'ECONNRESET' || err.code === 'ECONNABORTED' || err.code === 'ENOTFOUND')){
+          Logger.debug('Can not reach printer!', this.accessory.displayName);
         } else {
           Logger.error('An error occured during getting state', this.accessory.displayName);
           Logger.error(err);
@@ -167,7 +167,7 @@ class SwitchAccessory {
       this.accessory
         .getService(this.api.hap.Service.Switch)
         .getCharacteristic(this.api.hap.Characteristic.On)
-        .updateValue(true);
+        .updateValue(false);
 
     } finally {
 
