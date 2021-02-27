@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v1.0.3 - 2020-02-28
+- Additional debug
+- Fix switch state if printer is offline
+
 ## v1.0.2 - 2020-02-27
 - Refactor polling
 - Fix FilterLevel/Name if no marker could be found
