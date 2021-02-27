@@ -50,13 +50,17 @@ class SwitchAccessory {
           if(markers && markers.length){
 
             markers.forEach((marker, index) => {
-
-              Logger.info('Adding FilterMaintenance service for ' + marker, this.accessory.displayName);
-
-              let filterService = this.accessory.addService(this.api.hap.Service.FilterMaintenance, marker, 'marker-' + index);
-
-              filterService
-                .addCharacteristic(this.api.hap.Characteristic.FilterLifeLevel);
+            
+              if(marker){
+              
+                Logger.info('Adding FilterMaintenance service for ' + marker, this.accessory.displayName);
+  
+                let filterService = this.accessory.addService(this.api.hap.Service.FilterMaintenance, marker, 'marker-' + index);
+  
+                filterService
+                  .addCharacteristic(this.api.hap.Characteristic.FilterLifeLevel);
+                
+              }
 
             });
 
@@ -107,15 +111,19 @@ class SwitchAccessory {
         if(markerLevel && markerLevel.length){
 
           markerLevel.forEach((level, index) => {
+          
+            if(level !== undefined){
 
-            let filterService = this.accessory.getServiceById(this.api.hap.Service.FilterMaintenance, 'marker-' + index);
-
-            if(filterService){
-
-              filterService
-                .getCharacteristic(this.api.hap.Characteristic.FilterLifeLevel)
-                .updateValue(level < 0 ? 0 : level);
-
+              let filterService = this.accessory.getServiceById(this.api.hap.Service.FilterMaintenance, 'marker-' + index);
+  
+              if(filterService){
+  
+                filterService
+                  .getCharacteristic(this.api.hap.Characteristic.FilterLifeLevel)
+                  .updateValue(level < 0 ? 0 : level);
+  
+              }
+            
             }
 
           });
@@ -146,9 +154,15 @@ class SwitchAccessory {
       }
 
     } catch(err) {
-
-      Logger.error('An error occured during getting state', this.accessory.displayName);
-      Logger.error(err);
+    
+      if(err instanceof Error){
+        if(err.code && (err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT' || err.code === 'EHOSTUNREACH' || err.code === 'ECONNRESET' || err.code === 'ECONNABORTED')){
+          Logger.warn('Can not reach printer!', this.accessory.displayName);
+        } else {
+          Logger.error('An error occured during getting state', this.accessory.displayName);
+          Logger.error(err);
+        }
+      }
 
       this.accessory
         .getService(this.api.hap.Service.Switch)
