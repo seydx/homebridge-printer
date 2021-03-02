@@ -1,7 +1,7 @@
 # homebridge-printer
 
-[![npm](https://img.shields.io/npm/v/homebridge-printer.svg?style=flat-square)](https://www.npmjs.com/package/homebridge-washingmachine-pow)
-[![npm](https://img.shields.io/npm/dt/homebridge-printer.svg?style=flat-square)](https://www.npmjs.com/package/homebridge-washingmachine-pow)
+[![npm](https://img.shields.io/npm/v/homebridge-printer.svg?style=flat-square)](https://www.npmjs.com/package/homebridge-printer)
+[![npm](https://img.shields.io/npm/dt/homebridge-printer.svg?style=flat-square)](https://www.npmjs.com/package/homebridge-printer)
 [![GitHub last commit](https://img.shields.io/github/last-commit/SeydX/homebridge-printer.svg?style=flat-square)](https://github.com/SeydX/homebridge-printer)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square&maxAge=2592000)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NP4T3KASWQLD8)
 
