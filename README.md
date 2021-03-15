@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/SeydX/homebridge-printer/blob/main/images/printer_logo.png" height="300">
+    <img src="https://github.com/SeydX/homebridge-printer/blob/main/images/printer_logo.png" height="200">
 </p>
 
 
