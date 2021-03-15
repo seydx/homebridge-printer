@@ -15,6 +15,9 @@
 
 **Creating and maintaining Homebridge plugins consume a lot of time and effort, if you would like to share your appreciation, feel free to "Star" or donate.**
 
+[Click here](https://github.com/SeydX) to review more of my plugins.
+
+## Info
 
 This is a dynamic platform plugin for [Homebridge](https://github.com/nfarina/homebridge) to check the state of your ipp (AirPrint) capable printer.
 
