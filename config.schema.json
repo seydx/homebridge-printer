@@ -41,6 +41,30 @@
             "default": 10,
             "description": "Device polling in seconds. (Default 10s)"
           },
+          "marker": {
+            "name": "Enable Marker",
+            "type": "boolean",
+            "description": "If enabled, a new filter characteristic will be shown within printer accessory to show marker level."
+          },
+          "switchType": {
+            "name": "Swicth Accessory Type",
+            "type": "string",
+            "description": "Accessory type of the printer switch. If characteristic is choosen, the printer switch will be shown as a characteristic within contact accessory.",
+            "oneOf": [
+              {
+                "title": "Characteristic",
+                "enum": [
+                  "CHARACTERISTIC"
+                ]
+              },
+              {
+                "title": "Switch",
+                "enum": [
+                  "SWITCH"
+                ]
+              }
+            ]
+          },
           "manufacturer": {
             "name": "Manufacturer",
             "type": "string",
@@ -79,6 +103,8 @@
             "printer[].name",
             "printer[].address",
             "printer[].polling",
+            "printer[].marker",
+            "printer[].switchType",
             {
               "key": "printer[]",
               "type": "section",

@@ -10,6 +10,7 @@ const SwitchAccessory = require('./accessories/switch.js');
 const ContactAccessory = require('./accessories/contact.js');
 
 //Custom Types
+const CustomTypes = require('./types/custom_types.js');
 const EveTypes = require('./types/eve_types.js');
 
 const PLUGIN_NAME = 'homebridge-printer';
@@ -33,6 +34,7 @@ function PrinterPlatform (log, config, api) {
 
   Logger.init(log, config.debug);
   
+  CustomTypes.registerWith(api.hap);
   EveTypes.registerWith(api.hap);
   FakeGatoHistoryService = require('fakegato-history')(api);
 
@@ -63,10 +65,10 @@ function PrinterPlatform (log, config, api) {
           language: 'en-us',
           version: '2.0'
         };
-        
+             
+        printer.name = printer.name + ' Sensor';
+        printer.switchType = printer.switchType || 'SWITCH';
         printer.printer = ipp.Printer(printer.address, options);
-                
-        //switch
       
         const uuidSwitch = UUIDGen.generate(printer.name);
         
@@ -76,28 +78,25 @@ function PrinterPlatform (log, config, api) {
      
         } else {
           
-          printer.type = 'switch';
+          printer.type = 'contact';
           printer.polling = Number.isInteger(printer.polling) 
             ?  printer.polling < 1 
-                 ? 1 
-                 : printer.polling
+              ? 1 
+              : printer.polling
             :  10;
           
           this.devices.set(uuidSwitch, printer);
           
-          const uuidContact = UUIDGen.generate(printer.name + ' Printing');
+          if(printer.switchType === 'SWITCH'){
           
-          let contactAccessory = {
-            name: printer.name + ' Printing',
-            type: 'contact',
-            address: printer.address,
-            polling: printer.polling,
-            manufacturer: printer.manufacturer,
-            model: printer.model,
-            serialNumber: printer.serialNumber
-          };
+            let config = { ...printer };
+            config.name = printer.name.replace('Sensor', 'Switch');
+            config.type = 'switch';
+            
+            const uuidContact = UUIDGen.generate(config.name);
+            this.devices.set(uuidContact, config);
           
-          this.devices.set(uuidContact, contactAccessory);
+          }
           
         }
     
