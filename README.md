@@ -49,6 +49,8 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
           "name": "HP Envy Pro",
           "address": "http://hpf92bab4321ab:631/ipp/printer",
           "polling": 10,
+          "marker": true,
+          "switchType": "SWITCH",
           "manufacturer": "HP",
           "model": "Envy Pro",
           "serialNumber": "12345"
@@ -69,6 +71,8 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
 | debug | **No** | Enables additional output in the log. |
 | printer.address | **Yes** | IPP address of the printer. |
 | printer.polling | **No** | Printer state polling. (Default: 10s) |
+| printer.marker | **No** | If enabled, a new filter characteristic will be shown within printer accessory to show marker level. (Default: false) |
+| printer.switchType | **No** | Accessory type of the printer switch. If "CHARACTERISTIC" is choosen, the printer switch will be shown as a characteristic within contact accessory. (Default: SWITCH) |
 | printer.manufacturer | **No** | Manufacturer name for display in the Home app. |
 | printer.model | **No** | Model name for display in the Home app. |
 | printer.serialNumber | **No** | Serialnumber for display in the Home app. |
