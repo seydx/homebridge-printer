@@ -6,6 +6,10 @@
 - Bugfixes
 - Bump deps
 
+**NOTE**
+
+This version will remove your existing printer accessory and replace it with a new one! Existing automations will be removed!
+
 ## v1.0.3 - 2021-02-28
 - Additional debug
 - Fix switch state if printer is offline
