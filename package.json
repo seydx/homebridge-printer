@@ -1,6 +1,6 @@
 {
   "name": "homebridge-printer",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Homebridge plugin for ipp capable printer",
   "main": "index.js",
   "repository": {
@@ -40,7 +40,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@sealsystems/ipp": "^2.7.0",
+    "@sealsystems/ipp": "^2.7.4",
     "fakegato-history": "^0.6.1",
     "moment": "^2.29.1"
   }
