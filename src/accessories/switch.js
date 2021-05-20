@@ -3,9 +3,7 @@
 const Logger = require('../helper/logger.js');
 
 class SwitchAccessory {
-
-  constructor (api, accessory, accessories, printer) {
-
+  constructor(api, accessory, accessories, printer) {
     this.api = api;
     this.accessory = accessory;
     this.accessories = accessories;
@@ -13,43 +11,37 @@ class SwitchAccessory {
     this.printer = printer;
 
     this.getService();
-
   }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   // Services
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-  async getService () {
-
+  async getService() {
     let service = this.accessory.getService(this.api.hap.Service.Switch);
     let serviceFilter = this.accessory.getService(this.api.hap.Service.FilterMaintenance);
 
-    if(serviceFilter){
+    if (serviceFilter) {
       this.accessory.removeService(serviceFilter);
     }
 
-    if(!service){
+    if (!service) {
       Logger.info('Adding Switch service', this.accessory.displayName);
-      service = this.accessory.addService(this.api.hap.Service.Switch, this.accessory.displayName, this.accessory.context.config.type);
+      service = this.accessory.addService(
+        this.api.hap.Service.Switch,
+        this.accessory.displayName,
+        this.accessory.context.config.type
+      );
     }
 
-    service
-      .getCharacteristic(this.api.hap.Characteristic.On)
-      .onSet(value => {
-      
-        Logger.info('Switching state not supported yet', this.accessory.displayName);
-    
-        setTimeout(() => {
-          service
-            .getCharacteristic(this.api.hap.Characteristic.On)
-            .updateValue(!value);
-        }, 500);
-      
-      });
+    service.getCharacteristic(this.api.hap.Characteristic.On).onSet((value) => {
+      Logger.info('Switching state not supported yet', this.accessory.displayName);
 
+      setTimeout(() => {
+        service.getCharacteristic(this.api.hap.Characteristic.On).updateValue(!value);
+      }, 500);
+    });
   }
-
 }
 
 module.exports = SwitchAccessory;

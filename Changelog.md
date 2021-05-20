@@ -1,5 +1,7 @@
 # Changelog
 
+## v1.1.1 - 2021-05-20
+- Minor improvements & bugfixes
 
 ## v1.1.0 - 2021-03-17
 - Added marker & switchType as new options

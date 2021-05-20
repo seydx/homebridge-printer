@@ -4,7 +4,7 @@
  * @url https://github.com/SeydX/homebridge-printer
  * @author SeydX <seyd55@outlook.de>
  *
-**/
+ **/
 
 'use strict';
 

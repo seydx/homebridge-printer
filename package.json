@@ -21,6 +21,9 @@
       "url": "https://github.com/sponsors/seydx"
     }
   ],
+  "scripts": {
+    "lint": "eslint --fix ."
+  },
   "author": "SeydX (https://github.com/SeydX/homebridge-printer)",
   "license": "MIT",
   "bugs": {
@@ -38,10 +41,19 @@
     "node": ">=12.18.3",
     "homebridge": "^1.1.6"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@sealsystems/ipp": "^2.7.4",
+    "@sealsystems/ipp": "^2.7.5",
     "fakegato-history": "^0.6.1",
     "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.3",
+    "@babel/eslint-parser": "7.14.3",
+    "@babel/eslint-plugin": "7.13.16",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0"
   }
 }
